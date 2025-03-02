@@ -139,6 +139,74 @@ const createProfile = (username, email, age) => {
         return a + b;
     }
     console.log(add(3, 2));
-    console.log(add('abc', 'def'));
+    console.log(add("abc", "def"));
+}
+{
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        greet() {
+            console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+        }
+    }
+    const person1 = new Person("Alice", 25);
+    person1.greet();
+    class Student extends Person {
+        constructor(name, age, grade) {
+            super(name, age);
+            this.grade = grade;
+        }
+        greet() {
+            super.greet();
+            console.log(`I am in grade ${this.grade}.`);
+        }
+    }
+    class Teacher extends Person {
+        constructor(name, age, subject) {
+            super(name, age);
+            this.subject = subject;
+        }
+        greet() {
+            super.greet();
+            console.log(`I teach ${this.subject}.`);
+        }
+        intoduce(experience) {
+            console.log(`"My name is ${this.name}, and I have been teaching ${this.subject} for ${experience} years."`);
+        }
+    }
+    class Principal extends Person {
+        constructor(name, age, schoolName) {
+            super(name, age);
+            this.schoolName = schoolName;
+        }
+        announce() {
+            console.log(`I am the principal of ${this.schoolName}.`);
+        }
+    }
+    class School {
+        constructor(name, principal, teachers = []) {
+            this.name = name;
+            this.principal = principal;
+            this.teachers = teachers;
+        }
+        addTeacher(teacher) {
+            this.teachers.push(teacher);
+        }
+        listTeachers() {
+            this.teachers.forEach(teacher => console.log(teacher.name));
+        }
+        findTeacherByName(name) {
+            return this.teachers.find(teacher => teacher.name === name);
+        }
+    }
+    const principal = new Principal("Dr. Johnson", 50, "Greenwood High");
+    const teacher1 = new Teacher("Mr. Smith", 40, "Math");
+    const teacher2 = new Teacher("Ms. Davis", 35, "Science");
+    const school = new School("Greenwood High", principal);
+    school.addTeacher(teacher1);
+    school.addTeacher(teacher2);
+    console.log(school);
 }
 //# sourceMappingURL=index.js.map
