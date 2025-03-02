@@ -1,7 +1,7 @@
 let firstName: string = "John";
 let age: number = 30;
 
-//Functions 
+//Functions
 function greet(firstName: string, age: number): void {
   console.log(`Hello, my name is ${firstName} and I am ${age} years old.`);
 }
@@ -35,14 +35,12 @@ let user: Person = {
   isStudent: false,
 };
 
-
 //Types
 type ID = string | number;
 let userId: ID = 1974;
 
 let userInfo: [firstName: string, age: number, isStudent: boolean];
 userInfo = ["Hello Kitty", 9, false];
-
 
 //Enums
 enum Role {
@@ -299,107 +297,5 @@ const createProfile = (
 
   console.log(add(3, 2)); // 5
   console.log(add("abc", "def"));
-}
-
-// Classes
-{
-  class Person {
-    name: string;
-    age: number;
-
-    constructor(name: string, age: number) {
-      this.name = name;
-      this.age = age;
-    }
-    greet(): void {
-      console.log(
-        `Hello, my name is ${this.name} and I am ${this.age} years old.`
-      );
-    }
-  }
-  const person1 = new Person("Alice", 25);
-  person1.greet();
-
-  class Student extends Person {
-    grade: number;
-
-    constructor(name: string, age: number, grade: number) {
-      super(name, age);
-      this.grade = grade;
-    }
-    greet(): void {
-      super.greet();
-      console.log(`I am in grade ${this.grade}.`);
-    }
-  }
-
-  class Teacher extends Person {
-    subject: string;
-
-    constructor(name: string, age: number, subject: string) {
-      super(name, age);
-      this.subject = subject;
-    }
-    greet(): void {
-      super.greet();
-      console.log(`I teach ${this.subject}.`);
-    }
-    intoduce(experience: number) {
-      console.log(
-        `"My name is ${this.name}, and I have been teaching ${this.subject} for ${experience} years."`
-      );
-    }
-  }
-  class Principal extends Person{
-    schoolName:string;
-
-    constructor(name:string, age:number, schoolName:string){
-      super(name, age,);
-      this.schoolName= schoolName;
-    }
-    announce(){
-      console.log(`I am the principal of ${this.schoolName}.`);
-      
-    }
-  }
-
-
-
-  class School {
-    name:string;
-    principal: Principal;
-    teachers:Teacher[];
-    
-    constructor(name:string, principal:Principal, teachers:Teacher[]=[]){
-      this.name =name;
-      this.principal = principal;
-      this.teachers = teachers
-    }
-
-    addTeacher(teacher:Teacher):void{
-      this.teachers.push(teacher)
-    }
-
-    listTeachers(): void {
-      this.teachers.forEach(teacher => console.log(teacher.name));
-    }
-    
-    findTeacherByName(name: string): Teacher | undefined {
-      return this.teachers.find(teacher => teacher.name === name);
-  }
-      
-  }
-  
-  
-const principal = new Principal("Dr. Johnson", 50, "Greenwood High");
-const teacher1 = new Teacher("Mr. Smith", 40, "Math");
-const teacher2 = new Teacher("Ms. Davis", 35, "Science");
-
-const school = new School("Greenwood High", principal);
-school.addTeacher(teacher1);
-school.addTeacher(teacher2);
-
-console.log();
-
 }
 
