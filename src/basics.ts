@@ -1,6 +1,18 @@
 let firstName: string = "John";
 let age: number = 30;
 
+// Literals 
+{
+  /* Тип, который получится при автовыводе, зависит от того, что вы используете при объявлении переменной: const, let или var. Если вы используете const для объявления переменной с неизменяемым значением, то TypeScript выводит литеральный тип.  Однако, если использовать let или var при объявлении переменной, то TypeScript выведет более "крупный" тип. ref= https://race-timo.gitbook.io/typescript/types-as-sets */
+  
+  const a: 10 = 10        //10=>number 
+  const b: number = 1     //number
+
+  const c: 'lala' = 'lala' //lala
+  let d = 'lala'         // string
+ 
+}
+
 //Functions
 function greet(firstName: string, age: number): void {
   console.log(`Hello, my name is ${firstName} and I am ${age} years old.`);
@@ -222,9 +234,8 @@ const createProfile = (
   };
 
   const getMovieInfo = (movie: Movie): string => {
-    return `Title: ${movie.title}, Year: ${movie.year}, Rating: ${
-      movie.rating !== undefined ? movie.rating : "N/A"
-    }`;
+    return `Title: ${movie.title}, Year: ${movie.year}, Rating: ${movie.rating !== undefined ? movie.rating : "N/A"
+      }`;
   };
   /*!movie.rating перевіряє, чи значення є falsy 
   (наприклад, undefined, null, 0, NaN, "", false). 

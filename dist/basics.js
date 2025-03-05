@@ -1,6 +1,12 @@
 "use strict";
 let firstName = "John";
 let age = 30;
+{
+    const a = 10;
+    const b = 1;
+    const c = 'lala';
+    let d = 'lala';
+}
 function greet(firstName, age) {
     console.log(`Hello, my name is ${firstName} and I am ${age} years old.`);
 }
